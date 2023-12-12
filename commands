@@ -1,0 +1,38 @@
+Launching a Container in GUI Mode
+1. Installing Docker:
+Ensure Docker is installed on your system. On Linux, use:
+
+**
+sudo apt-get update
+sudo apt-get install docker-ce
+**
+
+2. Enabling X11 Forwarding:
+Enable X11 forwarding to allow GUI interactions between the container and the host. Run:
+
+**
+xhost +local:docker
+**
+
+3. Launching the UI Container:
+Launch a container with GUI support using:
+
+**
+docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix your_gui_container_image
+**
+
+Running GUI Software
+1. Installing GUI Software:
+Within the container, install your preferred GUI software. For example, on an Ubuntu-based image:
+
+**
+apt-get update
+apt-get install -y your_gui_software
+**
+
+2. Launching GUI Software:
+Start the GUI software within the container:
+
+**
+your_gui_software
+**
